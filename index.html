@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота: Вибір способу започаткування бізнесу</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-border {
+                border: 1px solid #ccc !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen pb-12">
+
+    <!-- Header Navigation -->
+    <header class="bg-indigo-900 text-white shadow-lg no-print">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="bg-indigo-700 text-indigo-100 text-xs font-semibold px-2.5 py-1 rounded border border-indigo-500 uppercase tracking-wider">Практична частина</span>
+                <h1 class="text-2xl font-bold mt-1">Вибір способу започаткування бізнесу</h1>
+                <p class="text-indigo-200 text-sm">Інтерактивний робочий аркуш студента</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="saveDraft()" class="bg-indigo-800 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition flex items-center gap-1.5 border border-indigo-600">
+                    <i class="fa-solid fa-floppy-disk"></i> Зберегти чернетку
+                </button>
+                <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-file-pdf"></i> Зберегти в PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+
+        <!-- Student Info Card -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8 print-border">
+            <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-user-graduate text-indigo-600"></i> Інформація про студента
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Прізвище та ім'я студента *</label>
+                    <input type="text" id="studentName" placeholder="Введіть ПІБ" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Група / Спеціальність *</label>
+                    <input type="text" id="studentGroup" placeholder="Наприклад: МЕ-21" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-500 mb-1">Дата виконання</label>
+                    <input type="date" id="workDate" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Task & Instructions Card -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8 print-border">
+            <div class="flex items-start gap-3">
+                <div class="bg-amber-100 text-amber-800 p-3 rounded-lg shrink-0 mt-1">
+                    <i class="fa-solid fa-truck-monster text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">Завдання № 1: Відкриття Мобільної СТО</h2>
+                    <p class="text-slate-600 mt-1 leading-relaxed text-sm">
+                        Ви отримали грант на відкриття мобільної станції технічного обслуговування (Мобільна СТО), яка виїжджає до клієнтів (ремонт тракторів у полі, дрібний ремонт вантажівок, обслуговування автопарків). 
+                        Ознайомтеся з вихідними умовами двох варіантів та виконайте завдання нижче.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conditions Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <!-- Option A -->
+                <div class="border border-blue-200 bg-blue-50/50 rounded-xl p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded">Варіант А</span>
+                        <span class="text-xs font-bold text-blue-800 uppercase tracking-wider">Франшиза</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">«Master-Слюсар.UA»</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed mb-3">
+                        Вам надають повністю укомплектований фургон з інструментами, фірмовий одяг, доступ до бази постійних клієнтів та навчання щодо новітнього обладнання.
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r text-xs text-amber-900 font-medium">
+                        <strong>Обмеження:</strong> Обов'язок використовувати тільки запчастини від франчайзера (дорожчі), робота строго за затвердженим прайс-листом (без знижок) та щомісячний фіксований роялті $200 за користування брендом.
+                    </div>
+                </div>
+
+                <!-- Option B -->
+                <div class="border border-emerald-200 bg-emerald-50/50 rounded-xl p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-emerald-600 text-white font-bold text-xs px-2.5 py-1 rounded">Варіант Б</span>
+                        <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Власний Стартап</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">«Мобільна СТО 'ВІД СЕБЕ'»</h3>
+                    <p class="text-slate-700 text-sm leading-relaxed mb-3">
+                        Ви самі купуєте та комплектуєте фургон (інструменти б/в, дешевші), самі шукаєте запчастини (можна обрати краще співвідношення ціна/якість).
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r text-xs text-amber-900 font-medium">
+                        <strong>Обмеження:</strong> Повна відповідальність за пошук клієнтів (реклама, сарафанне радіо), вас ніхто не знає, відсутність централізованої підтримки чи навчання.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instruction Banner -->
+            <div class="mt-6 bg-slate-100 p-4 rounded-lg border border-slate-300 text-xs text-slate-700">
+                <p class="font-bold uppercase tracking-wider text-slate-900 mb-1"><i class="fa-solid fa-list-check"></i> Інструкція з виконання:</p>
+                <ol class="list-decimal list-inside space-y-1">
+                    <li>Сформулюйте та запишіть <strong>щонайменше по 3 переваги</strong> та <strong>по 3 ризики (недоліки)</strong> для кожного варіанту, опираючись виключно на надані умови.</li>
+                    <li>Оберіть один із двох способів започаткування бізнесу (Варіант А чи Б).</li>
+                    <li>Надайте розгорнуте обґрунтування вашого вибору, враховуючи власні вміння, безпеку та вигідність на старті.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Interactive Comparison Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8 print-border">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-table-columns text-indigo-600"></i> Порівняльна таблиця (Переваги та Ризики)
+                </h2>
+                <span class="text-xs text-slate-500 no-print">* Необхідно заповнити мінімум 3 пункти у кожній секції</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse border border-slate-300">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 text-xs font-bold uppercase border-b border-slate-300">
+                            <th class="p-3 border-r border-slate-300 w-1/5">Показник</th>
+                            <th class="p-3 border-r border-slate-300 w-2/5 text-blue-900 bg-blue-50/50">
+                                Франшиза "Master-Слюсар.UA"
+                            </th>
+                            <th class="p-3 w-2/5 text-emerald-900 bg-emerald-50/50">
+                                Мобільна СТО "ВІД СЕБЕ"
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-sm">
+                        <!-- Advantages Row -->
+                        <tr>
+                            <td class="p-3 border-r border-slate-300 font-bold bg-slate-50 text-slate-700 align-top">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-plus text-emerald-600"></i> Переваги
+                                </div>
+                                <span class="text-xs font-normal text-slate-500 block mt-1">(Запишіть по 3 вагомі переваги)</span>
+                            </td>
+                            <td class="p-3 border-r border-slate-300 align-top bg-blue-50/10">
+                                <div id="franchise-advantages" class="space-y-2">
+                                    <!-- Dynamic Inputs -->
+                                </div>
+                                <button onclick="addInput('franchise-advantages')" class="no-print mt-3 text-xs text-indigo-600 font-semibold hover:text-indigo-800 flex items-center gap-1">
+                                    <i class="fa-solid fa-plus"></i> Додати пункт
+                                </button>
+                            </td>
+                            <td class="p-3 align-top bg-emerald-50/10">
+                                <div id="startup-advantages" class="space-y-2">
+                                    <!-- Dynamic Inputs -->
+                                </div>
+                                <button onclick="addInput('startup-advantages')" class="no-print mt-3 text-xs text-indigo-600 font-semibold hover:text-indigo-800 flex items-center gap-1">
+                                    <i class="fa-solid fa-plus"></i> Додати пункт
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Risks / Disadvantages Row -->
+                        <tr>
+                            <td class="p-3 border-r border-slate-300 font-bold bg-slate-50 text-slate-700 align-top">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Ризики або недоліки
+                                </div>
+                                <span class="text-xs font-normal text-slate-500 block mt-1">(Запишіть по 3 ключові ризики)</span>
+                            </td>
+                            <td class="p-3 border-r border-slate-300 align-top bg-blue-50/10">
+                                <div id="franchise-risks" class="space-y-2">
+                                    <!-- Dynamic Inputs -->
+                                </div>
+                                <button onclick="addInput('franchise-risks')" class="no-print mt-3 text-xs text-indigo-600 font-semibold hover:text-indigo-800 flex items-center gap-1">
+                                    <i class="fa-solid fa-plus"></i> Додати пункт
+                                </button>
+                            </td>
+                            <td class="p-3 align-top bg-emerald-50/10">
+                                <div id="startup-risks" class="space-y-2">
+                                    <!-- Dynamic Inputs -->
+                                </div>
+                                <button onclick="addInput('startup-risks')" class="no-print mt-3 text-xs text-indigo-600 font-semibold hover:text-indigo-800 flex items-center gap-1">
+                                    <i class="fa-solid fa-plus"></i> Додати пункт
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Decision & Justification Section -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8 print-border">
+            <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-gavel text-indigo-600"></i> Фінальне рішення та обґрунтування
+            </h2>
+
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-slate-800 mb-2">1. Оберіть ваш вибір способу започаткування бізнесу *</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="flex items-center p-4 border border-slate-300 rounded-xl cursor-pointer hover:bg-slate-50 transition border-2 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/40">
+                        <input type="radio" name="businessChoice" value="А (Франшиза 'Master-Слюсар.UA')" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                        <div class="ml-3">
+                            <span class="block font-bold text-slate-900 text-sm">Варіант А: Франшиза "Master-Слюсар.UA"</span>
+                            <span class="block text-xs text-slate-500">Готовий бренд, обладнання та база клієнтів</span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center p-4 border border-slate-300 rounded-xl cursor-pointer hover:bg-slate-50 transition border-2 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/40">
+                        <input type="radio" name="businessChoice" value="Б (Власний Стартап 'ВІД СЕБЕ')" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                        <div class="ml-3">
+                            <span class="block font-bold text-slate-900 text-sm">Варіант Б: Власний стартап "ВІД СЕБЕ"</span>
+                            <span class="block text-xs text-slate-500">Повна незалежність та гнучкість у виборі ціни</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-slate-800 mb-2">2. Аргументуйте своє рішення *</label>
+                <p class="text-xs text-slate-500 mb-2">
+                    Напишіть, чому саме цей шлях здається вам безпечнішим або вигіднішим на старті, та як ваші знання й вміння допоможуть подолати визначені ризики.
+                </p>
+                <textarea id="justificationText" rows="6" placeholder="Введіть ваші аргументи тут..." class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-sm leading-relaxed"></textarea>
+            </div>
+        </div>
+
+        <!-- Submit & Notification Area -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 no-print bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div id="statusMessage" class="text-sm font-medium text-slate-600">
+                Зміни зберігаються локально.
+            </div>
+            <div class="flex gap-3 w-full sm:w-auto">
+                <button onclick="clearForm()" class="w-full sm:w-auto px-4 py-2 border border-slate-300 hover:bg-slate-100 text-slate-700 rounded-lg text-sm font-medium transition">
+                    Очистити все
+                </button>
+                <button onclick="checkCompletion()" class="w-full sm:w-auto px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-sm shadow transition">
+                    Завершити та перевірити
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Initialize dynamic inputs for each box
+        const containers = ['franchise-advantages', 'startup-advantages', 'franchise-risks', 'startup-risks'];
+
+        function initInputs() {
+            containers.forEach(containerId => {
+                const container = document.getElementById(containerId);
+                container.innerHTML = '';
+                // Render default 3 inputs per container
+                for (let i = 1; i <= 3; i++) {
+                    addInput(containerId, '', i);
+                }
+            });
+            loadDraft();
+        }
+
+        function addInput(containerId, value = '', index = null) {
+            const container = document.getElementById(containerId);
+            const currentCount = container.children.length + 1;
+            const inputIndex = index || currentCount;
+
+            const div = document.createElement('div');
+            div.className = 'flex items-center gap-2';
+            div.innerHTML = `
+                <span class="text-xs text-slate-400 font-bold w-4">${inputIndex}.</span>
+                <input type="text" placeholder="Запишіть пункт..." value="${value}" 
+                       class="item-input flex-1 px-3 py-1.5 border border-slate-300 rounded-md focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-xs">
+                ${inputIndex > 3 ? `
+                <button onclick="this.parentElement.remove()" class="no-print text-slate-400 hover:text-red-500 transition px-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>` : ''}
+            `;
+            container.appendChild(div);
+        }
+
+        function saveDraft() {
+            const formData = {
+                studentName: document.getElementById('studentName').value,
+                studentGroup: document.getElementById('studentGroup').value,
+                workDate: document.getElementById('workDate').value,
+                justificationText: document.getElementById('justificationText').value,
+                businessChoice: document.querySelector('input[name="businessChoice"]:checked')?.value || '',
+                lists: {}
+            };
+
+            containers.forEach(id => {
+                const inputs = document.querySelectorAll(`#${id} .item-input`);
+                formData.lists[id] = Array.from(inputs).map(i => i.value);
+            });
+
+            localStorage.setItem('practical_work_startup_draft', JSON.stringify(formData));
+            showStatus('Чернетку успішно збережено!', 'text-emerald-600');
+        }
+
+        function loadDraft() {
+            const saved = localStorage.getItem('practical_work_startup_draft');
+            if (!saved) return;
+
+            try {
+                const data = JSON.parse(saved);
+                document.getElementById('studentName').value = data.studentName || '';
+                document.getElementById('studentGroup').value = data.studentGroup || '';
+                document.getElementById('workDate').value = data.workDate || '';
+                document.getElementById('justificationText').value = data.justificationText || '';
+
+                if (data.businessChoice) {
+                    const radio = document.querySelector(`input[name="businessChoice"][value="${data.businessChoice}"]`);
+                    if (radio) radio.checked = true;
+                }
+
+                containers.forEach(id => {
+                    if (data.lists && data.lists[id]) {
+                        const container = document.getElementById(id);
+                        container.innerHTML = '';
+                        data.lists[id].forEach((val, idx) => {
+                            addInput(id, val, idx + 1);
+                        });
+                    }
+                });
+            } catch (e) {
+                console.error("Помилка завантаження чернетки", e);
+            }
+        }
+
+        function clearForm() {
+            if (confirm('Ви впевнені, що хочете очистити всі заповнені поля?')) {
+                localStorage.removeItem('practical_work_startup_draft');
+                document.getElementById('studentName').value = '';
+                document.getElementById('studentGroup').value = '';
+                document.getElementById('workDate').value = '';
+                document.getElementById('justificationText').value = '';
+                const checkedRadio = document.querySelector('input[name="businessChoice"]:checked');
+                if (checkedRadio) checkedRadio.checked = false;
+                initInputs();
+                showStatus('Форму очищено.', 'text-slate-600');
+            }
+        }
+
+        function checkCompletion() {
+            const name = document.getElementById('studentName').value.trim();
+            const group = document.getElementById('studentGroup').value.trim();
+            const choice = document.querySelector('input[name="businessChoice"]:checked');
+            const justification = document.getElementById('justificationText').value.trim();
+
+            let missingFields = [];
+
+            if (!name) missingFields.push("ПІБ студента");
+            if (!group) missingFields.push("Група");
+            if (!choice) missingFields.push("Вибір варіанту (А чи Б)");
+
+            // Check table items count
+            let emptyTableItems = false;
+            containers.forEach(id => {
+                const inputs = document.querySelectorAll(`#${id} .item-input`);
+                let filledCount = 0;
+                inputs.forEach(input => {
+                    if (input.value.trim() !== '') filledCount++;
+                });
+                if (filledCount < 3) emptyTableItems = true;
+            });
+
+            if (emptyTableItems) {
+                missingFields.push("Заповніть мінімум по 3 пункти у кожній секції таблиці");
+            }
+
+            if (!justification) missingFields.push("Обґрунтування рішення");
+
+            if (missingFields.length > 0) {
+                alert("Будь ласка, заповніть всі обов'язкові поля:\n- " + missingFields.join("\n- "));
+                showStatus('Є незаповнені поля!', 'text-red-600');
+            } else {
+                saveDraft();
+                showStatus('Робота заповнена повністю та готова до здачі!', 'text-emerald-600');
+                alert("Вітаємо! Роботу заповнено. Ви можете зберегти її у PDF за допомогою кнопки 'Зберегти в PDF' у верхній панелі.");
+            }
+        }
+
+        function showStatus(text, colorClass) {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.className = `text-sm font-medium ${colorClass}`;
+            statusEl.innerText = text;
+        }
+
+        // Set default date to today
+        document.addEventListener('DOMContentLoaded', () => {
+            initInputs();
+            if (!document.getElementById('workDate').value) {
+                document.getElementById('workDate').valueAsDate = new Date();
+            }
+        });
+    </script>
+</body>
+</html>
